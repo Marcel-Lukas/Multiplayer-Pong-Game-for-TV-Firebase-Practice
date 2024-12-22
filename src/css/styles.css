@@ -1,0 +1,317 @@
+/* OpenSans Light */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* OpenSans Light Italic */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* OpenSans Regular */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* OpenSans Italic */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* OpenSans Medium */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* OpenSans Medium Italic */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* OpenSans Bold */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* OpenSans Bold Italic */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* OpenSans ExtraBold */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* OpenSans ExtraBold Italic */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: "OpenSans";
+}
+
+
+body {
+  height: 100vh;
+  background-image: url(../img/back.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+#logo {
+  position: absolute;
+  height: 60px;
+  margin-top: 30px;
+  margin-left: -30px;
+  filter: drop-shadow(0px 0px 10px rgb(255, 255, 255));
+  z-index: 5;
+  transition: 888ms ease-in-out;
+}
+
+.loaded-img {
+  transform: rotatez(720deg);
+}
+
+#output-con {
+  display: flex;
+  justify-content: center;
+}
+
+#output {
+  margin-top: 70px;
+  width: 333px;
+  height: 333px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 16px rgb(29, 29, 29);
+  padding: 12px;
+  overflow-y: scroll;
+  background-color: rgba(226, 226, 226, 0.3);
+  backdrop-filter: blur(2px);
+}
+
+p {
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+p:nth-child(odd) {
+  background-color: rgba(201, 201, 201, 0.4);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+
+
+#input-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#nickname {
+  height: 36px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: solid 1px rgb(71, 71, 71);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6);
+  padding: 4px;
+  width: 120px;
+  background-color: rgba(226, 226, 226, 0.3);
+  backdrop-filter: blur(2px);
+  outline: none;
+}
+
+input::placeholder {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+#nickname:focus {
+  border: solid 1px rgb(23, 86, 145);
+  box-shadow: 0px 0px 8px rgb(231, 231, 231);
+  background-color: rgba(226, 226, 226, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+#nick-btn-con {
+  min-width: 333px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#close-btn {
+  height: 32px;
+  background-color: rgba(50, 150, 216, 0.5);
+  color: rgb(224, 224, 224);
+  text-shadow: 1px 1px 1px black;
+  backdrop-filter: blur(2px);
+  border-radius: 8px;
+  padding: 0px 10px;
+  border: solid 1px rgba(54, 54, 54, 0.8);
+  box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.45) inset, 
+	-2px -2px 8px rgba(255, 255, 255, 0.45) inset,
+  0px 0px 16px rgba(255, 255, 255, 0.7);
+  transition: 222ms ease-in-out;
+  margin-left: 18px;
+}
+
+#close-btn:hover {
+  cursor: pointer;
+  background-color: rgba(233, 46, 22, 0.7);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.45) inset, 
+	-2px -2px 8px rgba(0, 0, 0, 0.45) inset,
+  0px 0px 18px rgba(255, 255, 255, 0.9);
+}
+
+#message {
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  padding: 6px;
+  border-radius: 6px;
+  width: 333px;
+  box-shadow: 0px 0px 16px rgb(0, 0, 0);
+  background-color: rgba(226, 226, 226, 0.3);
+  backdrop-filter: blur(2px);
+  outline: none;
+  margin-bottom: 16px;
+}
+
+#message::placeholder {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+#message:focus {
+  border: solid 1px rgb(23, 86, 145);
+  box-shadow: 0px 0px 8px rgb(231, 231, 231);
+  background-color: rgba(226, 226, 226, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+#error-con {
+  width: 333px;
+  height: auto;
+  background-color: rgba(240, 248, 255, 0.55);
+  backdrop-filter: blur(2px);
+  border-radius: 8px;
+  margin-bottom: 4px;
+  border: solid 1px rgba(29, 29, 29, 0.6);
+}
+
+#error-messages {
+  overflow-wrap: break-word;
+  color: rgb(255, 0, 0);
+  text-shadow: 1px 1px 1px black;
+  padding: 3px 6px;
+}
+
+.d-none {
+  display: none !important;
+}
+
+#new-chat-message {
+  padding: 4px 12px;
+  color: rgb(0, 0, 0);
+  background-color: rgba(209, 209, 209, 0.6);
+  text-shadow: 1px 1px 4px rgb(255, 255, 255);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8),
+  2px 1px 4px rgb(255, 255, 255) inset;
+}
+
+
+@media (max-width: 500px) {
+  #output {
+    width: 82vw;
+  }
+  #message {
+    width: 82vw;
+  }
+  #output-con {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 450px) {
+  #nick-btn-con {
+    flex-direction: column;
+  }
+  #close-btn {
+    margin-left: 0px;
+    margin-top: 8px;
+    padding: 0px 15px;
+  }
+  #logo {
+    height: 56px;
+    margin-top: 34px;
+    margin-left: 150px;
+  }
+}
+
+
+@media (max-width: 400px) {
+  #logo {
+    margin-left: 130px;
+  }
+}
+
+@media (max-width: 370px) {
+  #logo {
+    margin-left: 120px;
+  }
+}
+
+@media (max-width: 340px) {
+  #logo {
+    margin-left: 105px;
+  }
+}

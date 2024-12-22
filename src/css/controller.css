@@ -1,0 +1,195 @@
+/* OpenSans Regular */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* OpenSans Medium */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* OpenSans Bold */
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/openSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background-color: rgb(29, 29, 29);
+  height: 100vh;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "OpenSans";
+}
+
+
+
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.small-btn {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+  padding: 1px 4px;
+  margin-left: 20px;
+  background-color: rgb(212, 212, 212);
+  border-radius: 6px;
+  box-shadow: 3px 3px 16px rgb(255, 255, 255) inset, 
+	-3px -3px 16px rgba(0, 0, 0, 0.8) inset;
+  filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.5));
+  transition: 111ms ease-in-out;
+}
+
+.small-btn:hover {
+  transform: scale(112%);
+  filter: drop-shadow(0px 0px 7px rgba(255, 255, 255, 0.6));
+  cursor: default;
+}
+
+
+
+
+.button-con {
+  margin-right: 40px;
+  height: 200px;
+  width: 200px;
+}
+
+.a-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 700;
+  height: 130px;
+  width: 130px;
+  text-shadow: 2px 2px 6px rgb(255, 255, 255);
+  border-radius: 50%;
+  background-color: rgb(27, 188, 228);
+  margin-left: 20px;
+  margin-top: 20px;
+  box-shadow: 7px 7px 22px rgba(255, 255, 255, 0.9) inset, 
+	-6px -6px 22px rgba(0, 0, 0, 0.7) inset;
+  filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.6));
+  transition: 111ms ease-in-out;
+}
+
+.b-btn {
+  margin-top: -20px;
+  margin-left: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+  text-shadow: 1px 1px 4px rgb(255, 255, 255);
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: rgb(221, 40, 40);
+  box-shadow: 7px 7px 22px rgba(255, 255, 255, 0.9) inset, 
+	-6px -6px 22px rgba(0, 0, 0, 0.7) inset;
+  filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.6));
+  transition: 111ms ease-in-out;
+}
+
+.a-btn:hover,
+.b-btn:hover {
+  transform: scale(108%);
+  cursor: default;
+}
+
+
+
+
+
+.cross-con {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin-left: 50px;
+  margin-top: 30px;
+  border-radius: 50%;
+  background-color: rgb(68, 68, 68);
+  filter: drop-shadow(0px 0px 6px rgb(255, 255, 255));
+  box-shadow: 0px 0px 18px rgba(214, 214, 214, 0.2);
+}
+
+.cross {
+  position: absolute;
+  background-color: rgb(176, 210, 212);
+  border-radius: 18px;
+  border: solid 2px rgba(0, 0, 0, 0.7);
+  padding: 38px;
+  transition: 88ms ease-in-out;
+}
+
+.cross:hover {
+  background-color: rgb(121, 134, 134);
+  cursor: default;
+}
+
+.up {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 100px;
+  clip-path: polygon(100% 0%, 100% 75%, 50% 100%, 0%  75%, 0% 0%);
+}
+
+.down {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 100px;
+  clip-path: polygon(0%   100%, 0%   25%, 50%  0%, 100% 25%, 100% 100%);
+}
+
+.left {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 70px;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+
+.right {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 70px;
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}

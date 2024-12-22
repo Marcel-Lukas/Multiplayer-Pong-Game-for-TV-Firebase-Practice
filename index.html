@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Private Chatanwendung - Kommunikation mit Freunden, Familie oder Kollegen.">
+    <meta name="keywords" content="Private Chat, sichere Kommunikation, Datenschutz">
+    <meta name="author" content="Marcel Lukas">
+    <link rel="icon" type="image/png" href="src/img/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="src/img/favicon/favicon.svg">
+    <link rel="shortcut icon" href="src/img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="src/img/favicon/site.webmanifest">
+    <title>Marcel's Chatroom</title>
+    <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+    <script defer src="src/js/script.js"></script>
+  </head>
+  
+  <body onload="init()">
+    <div id="output-con">
+      <a href="index.html"><img id="logo" src="src/img/mm-chat-logo.png" alt="Chat Logo"></a>
+      <div id="output"></div>
+    </div>
+    <div id="input-con">
+      <div id="nick-btn-con">
+        <input type="text" id="nickname" name="nickname" placeholder="Nickname...">
+        <button id="close-btn" onclick="endChat()">Chat beenden</button>
+      </div>
+      <div id="error-con" class="d-none"><div id="error-messages"></div></div>
+      <textarea id="message" name="message" rows="3" placeholder="Nachricht..."></textarea>
+    </div>
+    <script>
+      setInterval(() => {
+        renderChat();
+      }, 777);
+    </script>
+        <script>
+          window.addEventListener('load', () => {
+              const logo = document.querySelector('#logo');
+              logo.classList.add('loaded-img');
+          });
+        </script>  
+  </body>
+</html>

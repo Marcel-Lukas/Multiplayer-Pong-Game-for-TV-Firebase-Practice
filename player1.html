@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Marcel Lukas">
+    <link rel="icon" type="image/png" href="src/img/favicon/controller-icon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="src/img/favicon/controller-icon/favicon.svg">
+    <link rel="shortcut icon" href="src/img/favicon/controller-icon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/img/favicon/controller-icon/apple-touch-icon.png">
+    <link rel="manifest" href="src/img/favicon/controller-icon/site.webmanifest">
+    <title>1. Player</title>
+    <link rel="stylesheet" type="text/css" href="src/css/controller.css">
+    <script defer src="src/js/controllerP1.js"></script>
+    <script defer src="src/js/addEventListener.js"></script>
+  </head>
+
+  <body>
+
+    <nav>
+      <div id="start" onclick="startBtn()" class="small-btn">Start</div>
+      <div id="select" onclick="selectBtn()" class="small-btn">Select</div>
+    </nav>
+
+    <div class="cross-con">
+      <div id="up" class="up cross"></div>
+      <div id="down" class="down cross"></div>
+      <div id="left" class="left cross"></div>
+      <div id="right" class="right cross"></div>
+    </div>
+
+    <div class="button-con">
+      <div id="b" class="b-btn">B</div>
+      <div id="a" class="a-btn">A</div>
+    </div>
+  </body>
+
+</html>
