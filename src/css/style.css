@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(141, 141, 141);
+  height: 100vh;
+  background-image: url("../img/hintergrund.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding-top: 90px;
+}
+canvas {
+  border: solid 6px white;
+}
+
+#score-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+span {
+  font-size: 28px;
+  font-weight: bold;
+  padding-left: 24px;
+  padding-right: 24px;
+  text-shadow: 0px 0px 16px rgb(255, 255, 255);
+}
+
+h1 {
+  font-size: 42px;
+  color: rgb(36, 36, 36);
+  filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+  transition: 2000ms ease-in-out;
+  padding: 4px;
+}
+
+.loaded {
+  transform: rotateY(360deg) rotateZ(720deg) rotateX(360deg);
+  filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
+  border-radius: 20px;
+}
+
+p {
+  font-size: 28px;
+  font-weight: bold;
+  padding-left: 8px;
+}
+
+.score-box {
+  display: flex;
+  align-items: center;
+  border: solid 1px rgb(110, 110, 110);
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#guidancebox {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: solid 1px rgb(110, 110, 110);
+  border-radius: 6px;
+}
+
+
+#btn, .pause {
+  align-self: center;
+  width: 110px;
+  padding: 6px;
+  background-color: rgb(190, 190, 190);
+  border: solid 1px rgb(104, 104, 104);
+  border-radius: 8px;
+  box-shadow: 0px 0px 3px rgb(0, 0, 0);
+  transition: 200ms ease-in-out;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+
+.pause > span {
+  display: flex;
+  font-size: 24px;
+  padding: 0;
+  justify-content: center;
+}
+
+#btn:link, .pause:link {
+  color: black;
+  text-decoration: none;
+}
+
+#btn:visited, .pause:visited {
+  color: black;
+  text-decoration: none;
+}
+
+#btn:active, .pause:active {
+  color: black;
+  text-decoration: none;
+}
+
+#btn:hover, .pause:hover {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  box-shadow: 0px 0px 4px rgb(0, 0, 0);
+  transform: scale(108%);
+}
+
+
+
+
+
+#toggelswitch {
+  align-self: center;
+  margin-left: 30px;
+}
+
+.spanswitch {
+  padding-left: 4px;
+  font-size: 18px;
+}
+
+.checkbox {
+  display: none;
+}
+
+.label {
+  margin-top: 1px;
+  margin-bottom: 3px;
+  background-color: rgb(224, 224, 224);
+  padding: 0.2em;
+  display: flex;
+  width: 58px;
+  border-radius: 2em;
+  align-items: center;
+  border: solid 1px rgb(180, 177, 177);
+  box-shadow: 0 0 8px rgba(46, 46, 46, 0.9);
+}
+
+.label:hover {
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 8px rgb(255, 255, 255));
+}
+
+.checkbox:checked ~ .label::before {
+  position: relative;
+  left: 56%;
+  background-color: rgb(145, 144, 144);
+  transition: 500ms;
+}
+
+.label::before {
+  content: "";
+  width: 1.25em;
+  height: 1.25em;
+  background-color: rgb(145, 144, 144);
+  border: solid 1px rgb(105, 105, 105);
+  border-radius: 50%;
+  position: relative;
+  transition: 0.6s;
+  left: 0.01em;
+}

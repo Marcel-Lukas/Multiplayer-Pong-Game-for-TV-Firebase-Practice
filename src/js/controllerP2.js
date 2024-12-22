@@ -1,5 +1,5 @@
 const BASE_URL = "https://remotestoragetest-e613a-default-rtdb.europe-west1.firebasedatabase.app/";
-const PLAYER_PATH = "player1";
+const PLAYER_PATH = "player2";
 
 async function postData(path = "", data = {}) {
   let response = await fetch(`${BASE_URL}${path}.json`, {

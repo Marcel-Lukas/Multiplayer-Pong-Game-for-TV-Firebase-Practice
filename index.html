@@ -4,42 +4,60 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Private Chatanwendung - Kommunikation mit Freunden, Familie oder Kollegen.">
-    <meta name="keywords" content="Private Chat, sichere Kommunikation, Datenschutz">
     <meta name="author" content="Marcel Lukas">
-    <link rel="icon" type="image/png" href="src/img/favicon/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/svg+xml" href="src/img/favicon/favicon.svg">
-    <link rel="shortcut icon" href="src/img/favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="src/img/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="src/img/favicon/site.webmanifest">
-    <title>Marcel's Chatroom</title>
-    <link rel="stylesheet" type="text/css" href="src/css/styles.css">
-    <script defer src="src/js/script.js"></script>
+    <link rel="icon" type="image/png" href="src/favicon/favicon-48x48.png" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="src/favicon/favicon.svg">
+    <link rel="shortcut icon" href="src/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="src/favicon/site.webmanifest">
+    <title>Retro Pong</title>
+    <link rel="stylesheet" type="text/css" href="src/css/style.css">
+    <script defer src="src/js/game.js"></script>
+    <audio id="hit-sound" src="src/sounds/beep.ogg"></audio>
+    <audio id="score-sound" src="src/sounds/tor.ogg"></audio>
   </head>
-  
-  <body onload="init()">
-    <div id="output-con">
-      <a href="index.html"><img id="logo" src="src/img/mm-chat-logo.png" alt="Chat Logo"></a>
-      <div id="output"></div>
-    </div>
-    <div id="input-con">
-      <div id="nick-btn-con">
-        <input type="text" id="nickname" name="nickname" placeholder="Nickname...">
-        <button id="close-btn" onclick="endChat()">Chat beenden</button>
+  <body>
+    <main>
+      <div>
+        <div>
+            <div id="score-container" >
+              <div class="score-box" >
+                <p>P1:</p>
+                <span id="score-p1">0</span>
+              </div>
+              <h1 id="retro" >Retro Pong</h1>
+              <div class="score-box" >
+                <p>P2:</p>
+                <span id="score-p2">0</span>
+              </div>             
+            </div>
+        </div>
+        <canvas id="ca" width="720" height="480" style="background-color: black;"></canvas>
+        
+        <div id="guidancebox">
+
+
+          <a id="btn" href="index.html">Neustart</a>
+
+          <div id="toggelswitch">
+            <span class="spanswitch">Sound</span>
+            <input id="checkbox" class="checkbox" name="checkbox" type="checkbox">
+            <label class="label" for="checkbox"></label>
+            <span class="spanswitch">On/Off</span>
+          </div>  
+                
+          <div class="pause"><span>Pause</span></div>
+
+
+        </div>   
       </div>
-      <div id="error-con" class="d-none"><div id="error-messages"></div></div>
-      <textarea id="message" name="message" rows="3" placeholder="Nachricht..."></textarea>
-    </div>
+    </main>
+    
     <script>
-      setInterval(() => {
-        renderChat();
-      }, 777);
+      window.addEventListener('load', () => {
+          const logo = document.querySelector('#retro');
+          logo.classList.add('loaded');
+      });
     </script>
-        <script>
-          window.addEventListener('load', () => {
-              const logo = document.querySelector('#logo');
-              logo.classList.add('loaded-img');
-          });
-        </script>  
   </body>
 </html>

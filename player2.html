@@ -12,33 +12,30 @@
     <link rel="shortcut icon" href="src/img/favicon/controller-icon/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="src/img/favicon/controller-icon/apple-touch-icon.png">
     <link rel="manifest" href="src/img/favicon/controller-icon/site.webmanifest">
-    <title>1. Player</title>
+    <title>2. Player</title>
     <link rel="stylesheet" type="text/css" href="src/css/controller.css">
-    <script defer src="src/js/controllerP1.js"></script>
+    <script defer src="src/js/controllerP2.js"></script>
+    <script defer src="src/js/addEventListener.js"></script>
   </head>
-  
-  <body onload="init()">
+
+  <body>
 
     <nav>
-      <div onclick="startBtn()" class="small-btn">Start</div>
-      <div onclick="selectBtn()" class="small-btn">Select</div>
+      <div id="start" onclick="startBtn()" class="small-btn">Start</div>
+      <div id="select" onclick="selectBtn()" class="small-btn">Select</div>
     </nav>
 
     <div class="cross-con">
-      <div onclick="upCross()" class="up cross"></div>
-      <div onclick="downCross()" class="down cross"></div>
-      <div onclick="leftCross()" class="left cross"></div>
-      <div onclick="rightCross()" class="right cross"></div>
+      <div id="up" class="up cross"></div>
+      <div id="down" class="down cross"></div>
+      <div id="left" class="left cross"></div>
+      <div id="right" class="right cross"></div>
     </div>
 
     <div class="button-con">
-      <div onclick="bBtn()" class="b-btn">B</div>
-      <div onclick="aBtn()" class="a-btn">A</div>
+      <div id="b" class="b-btn">B</div>
+      <div id="a" class="a-btn">A</div>
     </div>
-
-    <script>
-      document.addEventListener("touchstart", function(){}, true);
-    </script>
   </body>
 
 </html>
