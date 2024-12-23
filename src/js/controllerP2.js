@@ -1,8 +1,8 @@
 const BASE_URL = "https://remotestoragetest-e613a-default-rtdb.europe-west1.firebasedatabase.app/";
 const PLAYER_PATH = "player2";
 
-let startState = "start"; // Initial state for startBtn
-let selectState = "selectA"; // Initial state for selectBtn
+let startState = "start";
+let selectState = "selectA";
 
 async function postData(path = "", data = {}) {
   let response = await fetch(`${BASE_URL}${path}.json`, {
@@ -25,13 +25,11 @@ async function triggerAction(path, action, delay = 46) {
 
 function startBtn() {
   triggerAction(`${PLAYER_PATH}/startBtn`, startState);
-  // Toggle the state
   startState = startState === "start" ? "pause" : "start";
 }
 
 function selectBtn() {
   triggerAction(`${PLAYER_PATH}/selectBtn`, selectState);
-  // Toggle the state
   selectState = selectState === "selectA" ? "selectM" : "selectA";
 }
 

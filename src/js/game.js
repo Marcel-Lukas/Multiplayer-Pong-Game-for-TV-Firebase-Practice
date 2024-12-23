@@ -4,7 +4,7 @@ const PADDLE_WIDTH = 12;
 const PADDLE_HEIGHT = 100;
 const BALL_SIZE = 30;
 const MAX_SPEED = 15;
-const FETCH_INTERVAL = 100; // Fetch data interval in ms
+const FETCH_INTERVAL = 44; // Fetch data interval in ms
 
 let canvas = document.getElementById('gameCanvas');
 let ctx = canvas.getContext('2d');
@@ -66,21 +66,29 @@ let player2 = new Player(CANVAS_HEIGHT / 2 - PADDLE_HEIGHT / 2);
 let ball = new Ball();
 
 
+
+let lastPauseStateFetchTime = 0; 
+
 function updatePauseState() {
-    Promise.all([
-        fetchPlayerData(API_URL_PLAYER1, "startBtn/action"),
-        fetchPlayerData(API_URL_PLAYER2, "startBtn/action")
-    ]).then(([actionPlayer1, actionPlayer2]) => {
-        if (actionPlayer1 === "pause" || actionPlayer2 === "pause") {
-            isPaused = true;
-        }
-        if (actionPlayer1 === "start" || actionPlayer2 === "start") {
-            isPaused = false;
-        }
-    }).catch(error => {
-        console.error("Error updating pause state:", error);
-    });
+    const currentTime = Date.now();
+    if (currentTime - lastPauseStateFetchTime > FETCH_INTERVAL) {
+        Promise.all([
+            fetchPlayerData(API_URL_PLAYER1, "startBtn/action"),
+            fetchPlayerData(API_URL_PLAYER2, "startBtn/action")
+        ]).then(([actionPlayer1, actionPlayer2]) => {
+            if (actionPlayer1 === "pause" || actionPlayer2 === "pause") {
+                isPaused = true;
+            }
+            if (actionPlayer1 === "start" || actionPlayer2 === "start") {
+                isPaused = false;
+            }
+        }).catch(error => {
+            console.error("Error updating pause state:", error);
+        });
+        lastPauseStateFetchTime = currentTime;
+    }
 }
+
 
 
 function playSound(sound) {
