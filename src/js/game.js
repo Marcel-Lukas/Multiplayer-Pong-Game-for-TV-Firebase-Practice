@@ -1,9 +1,6 @@
-
-
 let ctx = ca.getContext('2d');
 let p1 = 200;
 let p2 = 200;
-let key = {};
 let ball = {
     x: 360,
     y: 240,
@@ -22,8 +19,20 @@ ballImage.src = './src/img/ball.png';
 
 let isPaused = false;
 
-document.addEventListener('keydown', e => key[e.keyCode] = true);
-document.addEventListener('keyup', e => key[e.keyCode] = false);
+const API_URL_PLAYER1 = "https://remotestoragetest-e613a-default-rtdb.europe-west1.firebasedatabase.app/player1/";
+const API_URL_PLAYER2 = "https://remotestoragetest-e613a-default-rtdb.europe-west1.firebasedatabase.app/player2/";
+
+async function getDataPlayer1(path = "") {
+    const response = await fetch(`${API_URL_PLAYER1}${path}.json`);
+    const dataP1 = await response.json();
+    return dataP1;
+}
+
+async function getDataPlayer2(path = "") {
+    const response = await fetch(`${API_URL_PLAYER2}${path}.json`);
+    const dataP2 = await response.json();
+    return dataP2;
+}
 
 document.querySelector('.pause').addEventListener('click', () => {
     isPaused = !isPaused;
@@ -44,22 +53,25 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-function loop() {
+async function loop() {
     if (isPaused) return;
 
-    if (key[38]) {
+    const player1Data = await getDataPlayer1("cross/action");
+    const player2Data = await getDataPlayer2("cross/action");
+
+    if (player2Data === "up") {
         p2 = Math.max(p2 - 5, 0);
     }
 
-    if (key[40]) {
+    if (player2Data === "down") {
         p2 = Math.min(p2 + 5, 400);
     }
 
-    if (key[87]) {
+    if (player1Data === "up") {
         p1 = Math.max(p1 - 5, 0);
     }
 
-    if (key[83]) {
+    if (player1Data === "down") {
         p1 = Math.min(p1 + 5, 400);
     }
 
