@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Marcel Lukas">
-    <link rel="icon" type="image/png" href="src/favicon/favicon-48x48.png" sizes="48x48">
-    <link rel="icon" type="image/svg+xml" href="src/favicon/favicon.svg">
-    <link rel="shortcut icon" href="src/favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="src/favicon/apple-touch-icon.png">
-    <link rel="manifest" href="src/favicon/site.webmanifest">
+    <link rel="icon" type="image/png" href="src/img/favicon/favicon-48x48.png" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="src/img/favicon/favicon.svg">
+    <link rel="shortcut icon" href="src/img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="src/img/favicon/site.webmanifest">
     <title>Retro Pong</title>
     <link rel="stylesheet" type="text/css" href="src/css/style.css">
     <script defer src="src/js/game.js"></script>
@@ -20,19 +20,7 @@
     <main>
       <div>
         <div>
-            <div id="score-container" >
-              <div class="score-box" >
-                <p>P1:</p>
-                <span id="score-p1">0</span>
-              </div>
-              <h1>Retro Pong</h1>
-              <div class="score-box" >
-                <p>P2:</p>
-                <span id="score-p2">0</span>
-              </div>             
-            </div>
-        </div>
-        <canvas id="ca" width="720" height="480" style="background-color: black;"></canvas>
+        <canvas id="gameCanvas"></canvas>
         
         <div id="guidancebox">
 
@@ -49,7 +37,8 @@
           <div class="pause"><span>Pause</span></div>
 
 
-        </div>   
+        </div>  
+         
       </div>
     </main>
     
