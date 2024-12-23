@@ -16,8 +16,9 @@ body {
 main {
   display: flex;
   justify-content: center;
-  padding-top: 90px;
+  padding-top: 200px;
 }
+
 canvas {
   border: solid 6px white;
 }
@@ -42,14 +43,7 @@ h1 {
   font-size: 42px;
   color: rgb(36, 36, 36);
   filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
-  transition: 2000ms ease-in-out;
   padding: 4px;
-}
-
-.loaded {
-  transform: rotateY(360deg) rotateZ(720deg) rotateX(360deg);
-  filter: drop-shadow(1px 1px 3px rgb(255, 255, 255));
-  border-radius: 20px;
 }
 
 p {
