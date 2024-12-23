@@ -1,12 +1,7 @@
 let ctx = ca.getContext('2d');
 let p1 = 200;
 let p2 = 200;
-let ball = {
-    x: 360,
-    y: 240,
-    speedX: 5,
-    speedY: 0
-};
+let ball = { x: 360, y: 240, speedX: 5, speedY: 0 };
 let scoreP1 = 0;
 let scoreP2 = 0;
 let lastScoredPlayer = null;
@@ -39,7 +34,7 @@ document.querySelector('.pause').addEventListener('click', () => {
 });
 
 draw();
-setInterval(loop, 1000 / 60);
+setInterval(loop, 1000 / 26);
 
 function draw() {
     ctx.fillStyle = 'rgb(15, 90, 30)';
@@ -53,26 +48,31 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
+let lastFetchTime = 0;
+const fetchInterval = 46;
+
 async function loop() {
     if (isPaused) return;
 
-    const player1Data = await getDataPlayer1("cross/action");
-    const player2Data = await getDataPlayer2("cross/action");
+    const currentTime = Date.now();
+    if (currentTime - lastFetchTime > fetchInterval) {
+        const player1Data = await getDataPlayer1("cross/action");
+        const player2Data = await getDataPlayer2("cross/action");
 
-    if (player2Data === "up") {
-        p2 = Math.max(p2 - 5, 0);
-    }
+        if (player2Data === "up") {
+            p2 = Math.max(p2 - 5, 0);
+        }
+        if (player2Data === "down") {
+            p2 = Math.min(p2 + 5, 400);
+        }
+        if (player1Data === "up") {
+            p1 = Math.max(p1 - 5, 0);
+        }
+        if (player1Data === "down") {
+            p1 = Math.min(p1 + 5, 400);
+        }
 
-    if (player2Data === "down") {
-        p2 = Math.min(p2 + 5, 400);
-    }
-
-    if (player1Data === "up") {
-        p1 = Math.max(p1 - 5, 0);
-    }
-
-    if (player1Data === "down") {
-        p1 = Math.min(p1 + 5, 400);
+        lastFetchTime = currentTime;
     }
 
     ball.x = ball.x + ball.speedX;
@@ -80,7 +80,7 @@ async function loop() {
 
     if (ball.x < 20 && ball.speedX < 0) {
         if (ball.y > p1 && ball.y < p1 + 80) {
-            ball.speedX = -ball.speedX * 1.1;
+            ball.speedX = -ball.speedX * 1.05;
             ball.speedY = (ball.y - p1 - 40) * 0.1;
             playSound(hitSound);
         } else {
@@ -94,7 +94,7 @@ async function loop() {
 
     if (ball.x > 690 && ball.speedX > 0) {
         if (ball.y > p2 && ball.y < p2 + 80) {
-            ball.speedX = -ball.speedX * 1.1;
+            ball.speedX = -ball.speedX * 1.05;
             ball.speedY = (ball.y - p2 - 40) * 0.1;
             playSound(hitSound);
         } else {
