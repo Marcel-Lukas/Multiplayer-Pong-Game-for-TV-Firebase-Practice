@@ -84,9 +84,7 @@ function updatePauseState() {
 
 
 function playSound(sound) {
-    if (!muteCheckbox.checked) {
-        sound.play();
-    }
+  sound.play();
 }
 
 
