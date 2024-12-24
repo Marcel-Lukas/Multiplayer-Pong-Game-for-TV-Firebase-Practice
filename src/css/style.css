@@ -50,7 +50,6 @@ main {
 
 canvas {
   border: solid 6px white;
-  max-width: calc(100vw - 550px);
 }
 
 .box {
