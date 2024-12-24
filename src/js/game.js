@@ -1,9 +1,9 @@
-const CANVAS_WIDTH = 1200;
-const CANVAS_HEIGHT = 800;
+const CANVAS_WIDTH = 980;
+const CANVAS_HEIGHT = 600;
 const PADDLE_WIDTH = 12;
 const PADDLE_HEIGHT = 100;
 const BALL_SIZE = 30;
-const MAX_SPEED = 15;
+const MAX_SPEED = 10;
 const FETCH_INTERVAL = 44; // Fetch data interval in ms
 
 let canvas = document.getElementById('gameCanvas');
