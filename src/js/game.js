@@ -32,8 +32,8 @@ class Player {
     }
 
     move(direction) {
-        if (direction === "up") this.y = Math.max(this.y - 5, 0);
-        if (direction === "down") this.y = Math.min(this.y + 5, CANVAS_HEIGHT - PADDLE_HEIGHT);
+        if (direction === "up") this.y = Math.max(this.y - 15, 0);
+        if (direction === "down") this.y = Math.min(this.y + 15, CANVAS_HEIGHT - PADDLE_HEIGHT);
     }
 }
 
