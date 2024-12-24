@@ -4,7 +4,20 @@ const PLAYER_PATH = "player2";
 let startState = "start";
 let selectState = "selectA";
 
-let actionDelay = 111; // Action switch delay in ms
+const actionDelay = 111; // Action switch Delay in ms
+const throttleTiming = 66; // Throttle Delay in ms
+
+
+function throttle(func, limit) {
+  let lastExecution = 0;
+  return function (...args) {
+    const now = Date.now();
+    if (now - lastExecution >= limit) {
+      func(...args);
+      lastExecution = now;
+    }
+  };
+}
 
 async function postData(path = "", data = {}) {
   let response = await fetch(`${BASE_URL}${path}.json`, {
@@ -17,8 +30,6 @@ async function postData(path = "", data = {}) {
   return await response.json();
 }
 
-
-
 async function triggerAction(path, action, delay = actionDelay) {
   await postData(path, { action: action });
 
@@ -28,37 +39,38 @@ async function triggerAction(path, action, delay = actionDelay) {
 }
 
 
+const triggerActionThrottled = throttle(triggerAction, throttleTiming);
+
 function startBtn() {
-  triggerAction(`${PLAYER_PATH}/startBtn`, startState);
+  triggerActionThrottled(`${PLAYER_PATH}/startBtn`, startState);
   startState = startState === "start" ? "pause" : "start";
 }
 
 function selectBtn() {
-  triggerAction(`${PLAYER_PATH}/selectBtn`, selectState);
+  triggerActionThrottled(`${PLAYER_PATH}/selectBtn`, selectState);
   selectState = selectState === "selectA" ? "selectM" : "selectA";
 }
 
 function upCross() {
-  triggerAction(`${PLAYER_PATH}/cross`, "up");
+  triggerActionThrottled(`${PLAYER_PATH}/cross`, "up");
 }
 
 function downCross() {
-  triggerAction(`${PLAYER_PATH}/cross`, "down");
+  triggerActionThrottled(`${PLAYER_PATH}/cross`, "down");
 }
 
 function leftCross() {
-  triggerAction(`${PLAYER_PATH}/cross`, "left");
+  triggerActionThrottled(`${PLAYER_PATH}/cross`, "left");
 }
 
 function rightCross() {
-  triggerAction(`${PLAYER_PATH}/cross`, "right");
+  triggerActionThrottled(`${PLAYER_PATH}/cross`, "right");
 }
 
 function bBtn() {
-  triggerAction(`${PLAYER_PATH}/button`, "b");
+  triggerActionThrottled(`${PLAYER_PATH}/button`, "b");
 }
 
 function aBtn() {
-  triggerAction(`${PLAYER_PATH}/button`, "a");
+  triggerActionThrottled(`${PLAYER_PATH}/button`, "a");
 }
-
