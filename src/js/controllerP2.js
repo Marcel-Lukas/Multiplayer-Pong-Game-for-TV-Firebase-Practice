@@ -5,7 +5,7 @@ let startState = "start";
 let selectState = "selectA";
 
 const actionDelay = 111; // Action switch Delay in ms
-const throttleTiming = 66; // Throttle Delay in ms
+const throttleTiming = 33; // Throttle Delay in ms
 
 
 function throttle(func, limit) {
