@@ -4,7 +4,7 @@ const PADDLE_WIDTH = 12;
 const PADDLE_HEIGHT = 100;
 const BALL_SIZE = 30;
 const MAX_SPEED = 10;
-const FETCH_INTERVAL = 101; // Fetch data interval in ms
+const FETCH_INTERVAL = 70; // Fetch data interval in ms
 
 let canvas = document.getElementById('gameCanvas');
 let ctx = canvas.getContext('2d');
@@ -32,8 +32,8 @@ class Player {
     }
 
     move(direction) {
-        if (direction === "up") this.y = Math.max(this.y - 15, 0);
-        if (direction === "down") this.y = Math.min(this.y + 15, CANVAS_HEIGHT - PADDLE_HEIGHT);
+        if (direction === "up") this.y = Math.max(this.y - 10, 0);
+        if (direction === "down") this.y = Math.min(this.y + 10, CANVAS_HEIGHT - PADDLE_HEIGHT);
     }
 }
 
