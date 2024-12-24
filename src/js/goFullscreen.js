@@ -13,6 +13,6 @@ function goFullscreen() {
 }
 
 
-["a", "b", "right", "down", "up", "left", "start", "select"].forEach(id => {
+["rotate-container", "a", "b", "right", "down", "up", "left", "start", "select"].forEach(id => {
   document.getElementById(id).addEventListener("click", goFullscreen);
 });
