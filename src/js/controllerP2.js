@@ -4,8 +4,8 @@ const PLAYER_PATH = "player2";
 let startState = "start";
 let selectState = "selectA";
 
-const actionDelay = 111; // Action switch Delay in ms
-const throttleTiming = 33; // Throttle Delay in ms
+const actionDelay = 333; // Action switch Delay in ms
+const throttleTiming = 175; // Throttle Delay in ms
 
 
 function throttle(func, limit) {
@@ -30,6 +30,7 @@ async function postData(path = "", data = {}) {
   return await response.json();
 }
 
+
 async function triggerAction(path, action, delay = actionDelay) {
   await postData(path, { action: action });
 
@@ -37,6 +38,8 @@ async function triggerAction(path, action, delay = actionDelay) {
     postData(path, { action: "off" });
   }, delay);
 }
+
+
 
 
 const triggerActionThrottled = throttle(triggerAction, throttleTiming);
