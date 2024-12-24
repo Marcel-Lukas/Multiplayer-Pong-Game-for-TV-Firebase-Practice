@@ -7,18 +7,6 @@ let selectState = "selectA";
 const actionDelay = 333; // Action switch Delay in ms
 const throttleTiming = 175; // Throttle Delay in ms
 
-
-function throttle(func, limit) {
-  let lastExecution = 0;
-  return function (...args) {
-    const now = Date.now();
-    if (now - lastExecution >= limit) {
-      func(...args);
-      lastExecution = now;
-    }
-  };
-}
-
 async function postData(path = "", data = {}) {
   let response = await fetch(`${BASE_URL}${path}.json`, {
     method: "PUT",
@@ -30,50 +18,51 @@ async function postData(path = "", data = {}) {
   return await response.json();
 }
 
-
-async function triggerAction(path, action, delay = actionDelay) {
+async function triggerAction(path, action) {
   await postData(path, { action: action });
-
-  setTimeout(() => {
-    postData(path, { action: "off" });
-  }, delay);
 }
 
+let activeAction = null; // To track the active action
 
+function startAction(action, path) {
+  if (activeAction !== action) {
+    activeAction = action;
+    triggerAction(path, action);
+  }
+}
 
+function stopAction(path) {
+  if (activeAction) {
+    triggerAction(path, "off");
+    activeAction = null;
+  }
+}
 
-const triggerActionThrottled = throttle(triggerAction, throttleTiming);
+function bindButtonEvents(buttonId, action, path) {
+  const button = document.getElementById(buttonId);
+
+  button.addEventListener("mousedown", () => startAction(action, path));
+  button.addEventListener("mouseup", () => stopAction(path));
+  button.addEventListener("mouseleave", () => stopAction(path));
+  button.addEventListener("touchstart", () => startAction(action, path), { passive: true });
+  button.addEventListener("touchend", () => stopAction(path), { passive: true });
+}
 
 function startBtn() {
-  triggerActionThrottled(`${PLAYER_PATH}/startBtn`, startState);
+  triggerAction(`${PLAYER_PATH}/startBtn`, startState);
   startState = startState === "start" ? "pause" : "start";
 }
 
 function selectBtn() {
-  triggerActionThrottled(`${PLAYER_PATH}/selectBtn`, selectState);
+  triggerAction(`${PLAYER_PATH}/selectBtn`, selectState);
   selectState = selectState === "selectA" ? "selectM" : "selectA";
 }
 
-function upCross() {
-  triggerActionThrottled(`${PLAYER_PATH}/cross`, "up");
-}
-
-function downCross() {
-  triggerActionThrottled(`${PLAYER_PATH}/cross`, "down");
-}
-
-function leftCross() {
-  triggerActionThrottled(`${PLAYER_PATH}/cross`, "left");
-}
-
-function rightCross() {
-  triggerActionThrottled(`${PLAYER_PATH}/cross`, "right");
-}
-
-function bBtn() {
-  triggerActionThrottled(`${PLAYER_PATH}/button`, "b");
-}
-
-function aBtn() {
-  triggerActionThrottled(`${PLAYER_PATH}/button`, "a");
-}
+document.addEventListener("DOMContentLoaded", () => {
+  bindButtonEvents("up", "up", `${PLAYER_PATH}/cross`);
+  bindButtonEvents("down", "down", `${PLAYER_PATH}/cross`);
+  bindButtonEvents("left", "left", `${PLAYER_PATH}/cross`);
+  bindButtonEvents("right", "right", `${PLAYER_PATH}/cross`);
+  bindButtonEvents("a", "a", `${PLAYER_PATH}/button`);
+  bindButtonEvents("b", "b", `${PLAYER_PATH}/button`);
+});
