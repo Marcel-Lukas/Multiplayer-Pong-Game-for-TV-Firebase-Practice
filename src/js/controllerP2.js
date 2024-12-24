@@ -22,7 +22,7 @@ async function triggerAction(path, action) {
   await postData(path, { action: action });
 }
 
-let activeAction = null; // To track the active action
+let activeAction = null;
 
 function startAction(action, path) {
   if (activeAction !== action) {
