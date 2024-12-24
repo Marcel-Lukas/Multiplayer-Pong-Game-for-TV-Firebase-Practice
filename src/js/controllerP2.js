@@ -4,6 +4,8 @@ const PLAYER_PATH = "player2";
 let startState = "start";
 let selectState = "selectA";
 
+let actionDelay = 111; // Action switch delay in ms
+
 async function postData(path = "", data = {}) {
   let response = await fetch(`${BASE_URL}${path}.json`, {
     method: "PUT",
@@ -15,13 +17,16 @@ async function postData(path = "", data = {}) {
   return await response.json();
 }
 
-async function triggerAction(path, action, delay = 46) {
+
+
+async function triggerAction(path, action, delay = actionDelay) {
   await postData(path, { action: action });
 
   setTimeout(() => {
     postData(path, { action: "off" });
   }, delay);
 }
+
 
 function startBtn() {
   triggerAction(`${PLAYER_PATH}/startBtn`, startState);
@@ -56,3 +61,4 @@ function bBtn() {
 function aBtn() {
   triggerAction(`${PLAYER_PATH}/button`, "a");
 }
+

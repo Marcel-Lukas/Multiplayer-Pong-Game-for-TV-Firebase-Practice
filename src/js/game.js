@@ -4,7 +4,7 @@ const PADDLE_WIDTH = 12;
 const PADDLE_HEIGHT = 100;
 const BALL_SIZE = 30;
 const MAX_SPEED = 10;
-const FETCH_INTERVAL = 44; // Fetch data interval in ms
+const FETCH_INTERVAL = 80; // Fetch data interval in ms
 
 let canvas = document.getElementById('gameCanvas');
 let ctx = canvas.getContext('2d');

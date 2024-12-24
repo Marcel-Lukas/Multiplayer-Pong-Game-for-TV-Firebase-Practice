@@ -2,7 +2,7 @@ let intervalId = null;
 
 function startAction(action) {
   if (!intervalId) {
-    intervalId = setInterval(action, 44);
+    intervalId = setInterval(action, 33);
   }
 }
 
